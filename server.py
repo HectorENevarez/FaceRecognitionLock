@@ -1,0 +1,56 @@
+import socket
+from PIL import Image
+
+#192.168.0.103
+def client_program():
+    host = '192.168.0.75'  # as both code is running on same pc
+    port = 2345  # socket server port number
+
+    client_socket = socket.socket()  # instantiate
+    client_socket.connect((host, port))  # connect to the server
+
+    message = input(" -> ")  # take input
+
+    while message.lower().strip() != 'bye':
+        client_socket.send(message.encode())  # send message
+        data = client_socket.recv(1024).decode()  # receive response
+
+        print('Received from server: ' + data)  # show in terminal
+
+        message = input(" -> ")  # again take input
+
+    client_socket.close()  # close the connection
+
+def server_program():
+    host = '0.0.0.0'
+    port = 2345
+    s = socket.socket()
+    s.bind((host, port))
+    f = open('torecv.png', 'wb')
+    s.listen(5)
+
+    c, addr = s.accept()
+    print("Got connection from: ", addr)
+    l = c.recv(1024)
+    while(l):
+        print("Recieving...")
+        f.write(l)
+        l = c.recv(1024)
+    print(str(f))
+    f.close()
+    print("Done Recieving")
+    c.send(b"Thank you for connecting")
+    c.close()
+    print("Converting raw Image")
+    rawData = open("torecv.raw", 'rb').read()
+    imgSize = (480, 720)
+    img = Image.frombytes('L', imgSize, rawData)
+    img.save("torecv.png")
+
+            
+
+
+if __name__ == '__main__':
+    #client_program()
+    server_program()
+
