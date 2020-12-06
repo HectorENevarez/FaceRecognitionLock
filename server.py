@@ -26,7 +26,7 @@ def server_program():
     port = 2345
     s = socket.socket()
     s.bind((host, port))
-    f = open('torecv.png', 'wb')
+    f = open('torecv.raw', 'wb')
     s.listen(5)
 
     c, addr = s.accept()
@@ -36,16 +36,21 @@ def server_program():
         print("Recieving...")
         f.write(l)
         l = c.recv(1024)
-    print(str(f))
+    #print(str(f))
     f.close()
     print("Done Recieving")
-    c.send(b"Thank you for connecting")
+    #c.send(b"Thank you for connecting")
     c.close()
-    print("Converting raw Image")
-    rawData = open("torecv.raw", 'rb').read()
-    imgSize = (480, 720)
-    img = Image.frombytes('L', imgSize, rawData)
-    img.save("torecv.png")
+
+    print("Converting raw Image...")
+    im = Image.open("torecv.raw")
+    rgb_im = im.convert('RGB')
+    rgb_im.save("converted.jpg")
+    print("Image has been converted to jpg")
+    #rawData = open("torecv.txt", 'rb').read()
+    #imgSize = (854, 642)
+    #img = Image.frombytes('L', imgSize, rawData)
+    #img.save("torecv.png")
 
             
 
