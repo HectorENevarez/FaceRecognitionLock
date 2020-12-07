@@ -62,24 +62,23 @@ def classify_face(im):
 
         face_names.append(name)
 
-        for (top, right, bottom, left), name in zip(face_locations, face_names):
+        #for (top, right, bottom, left), name in zip(face_locations, face_names):
             # Draw a box around the face
-            cv2.rectangle(img, (left-20, top-20), (right+20, bottom+20), (255, 0, 0), 2)
+        #    cv2.rectangle(img, (left-20, top-20), (right+20, bottom+20), (255, 0, 0), 2)
 
             # Draw a label with a name below the face
-            cv2.rectangle(img, (left-20, bottom -15), (right+20, bottom+20), (255, 0, 0), cv2.FILLED)
-            font = cv2.FONT_HERSHEY_DUPLEX
-            cv2.putText(img, name, (left -20, bottom + 15), font, 1.0, (255, 255, 255), 2)
+        #    cv2.rectangle(img, (left-20, bottom -15), (right+20, bottom+20), (255, 0, 0), cv2.FILLED)
+        #    font = cv2.FONT_HERSHEY_DUPLEX
+        #    cv2.putText(img, name, (left -20, bottom + 15), font, 1.0, (255, 255, 255), 2)
 
 
     # Display the resulting image
-    while True:
+    #while True:
 
-        cv2.imshow('Video', img)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            return face_names 
-
-
-print(classify_face("test.jpg"))
+    #    cv2.imshow('Video', img)
+    #    if cv2.waitKey(1) & 0xFF == ord('q'):
+    return face_names 
 
 
+if __name__ == "__main__":
+    print(classify_face("converted.jpg")[0])
