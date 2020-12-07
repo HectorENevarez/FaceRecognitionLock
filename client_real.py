@@ -24,25 +24,28 @@ def server_program():
 
 
 def client_program():
-    host = "192.168.0.103"
+    host = "192.168.0.30"
     port = 2345
 
     s = socket.socket()
     s.connect((host, port))
 
-    f = open("guadiana_face.jpg", 'rb')    
+    f = open("guadiana_face.jpg", 'rb')
 
-    l = f.read(1024)
-    while(l):
-        print("Sending...")
-        s.send(l)
-        l = f.read(1024)
+    l = f.read(40960000)
+    s.send(l)
 
     f.close()
     print("Done Sending")
-    s.close()
+
+    result = s.recv(1024)
+
+    result = result.decode()
+    print("result received!", result)
+    return result
 
 
-if __name__ == "__main__":
-    #server_program()
-    client_program()
+
+# if __name__ == "__main__":
+#     #server_program()
+#     client_program()
