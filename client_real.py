@@ -24,13 +24,13 @@ def server_program():
 
 
 def client_program():
-    host = "192.168.0.30"
+    host = "192.168.0.103"
     port = 2345
 
     s = socket.socket()
     s.connect((host, port))
 
-    f = open("guadiana_face.jpg", 'rb')
+    f = open("./faces/headshot_1.jpg", 'rb')
 
     l = f.read(40960000)
     s.send(l)

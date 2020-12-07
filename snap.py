@@ -6,12 +6,7 @@ def snap():
     camera = picamera.PiCamera()
     counter = 0
     camera.capture("/home/pi/CS530PROJ/faces/headshot_1.jpg")
-    sleep(2)
-    camera.capture("/home/pi/CS530PROJ/faces/headshot_2.jpg")
-    sleep(2)
-    camera.capture("/home/pi/CS530PROJ/faces/Headshot_3.jpg")
-
-
+    
 if __name__ == "__main__":
     snap()
 
