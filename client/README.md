@@ -15,11 +15,11 @@ It also contains the "main" functionality for our project:
 * Once the lock is unlocked, the program waits for user input to lock, then calls the respective GPIO method to spin the lock back
 This loop continues until exited manually. 
 
-## snap.py
+### snap.py
 This is the script for taking and saving a photo of the user attempting to unlock. 
 It identifies the piCam, snaps a singular photo, and saves it to our specified directory
 
-## client_real.py
+### client_real.py
 This is the script for our client side of the client-server connection.
 The script procedes as follows:
 * First, the host IP and port are identified and saved 
