@@ -7,7 +7,7 @@ def client_program():
     s = socket.socket()
     s.connect((host, port))
 
-    f = open("guadiana_face.jpg", 'rb')
+    f = open("./faces/headshot_1.jpg", 'rb')
     l = f.read(1024)
 
     while(l):
