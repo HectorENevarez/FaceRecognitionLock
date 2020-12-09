@@ -1,4 +1,4 @@
-#Lock unlock & lock via facial recognition & DCmotor
+#Sliding Lock unlock/lock via facial recognition & DCmotor
 
 import RPi.GPIO as gpio
 import time
