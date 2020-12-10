@@ -1,5 +1,11 @@
 # Client Side 
 
+## Dependencies
+To run the server side scripts the following requirements are needed:
+* Python 3.3+
+* RPIO.GPIO
+* picamera
+
 ## The Client is composed of 3 main scripts, each ran on the Raspberry Pi:
 1. CS530_Project.py
 2. snap.py
@@ -21,8 +27,8 @@ It identifies the piCam, snaps a singular photo, and saves it to our specified d
 
 ### client_real.py
 This is the script for our client side of the client-server connection.
-The script procedes as follows:
+The script proceeds as follows:
 * First, the host IP and port are identified and saved 
-* Then, a cleint socket is initialized and connected
+* Then, a client socket is initialized and connected
 * Next, the snapped image of the user is read and sent to the server
 * After the server finishes the facial recognition, the result is received on the client side, decrypted, and returned to a variable for use in the main script
