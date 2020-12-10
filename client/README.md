@@ -1,7 +1,7 @@
 # Client Side 
 
 ## Dependencies
-To run the server side scripts the following requirements are needed:
+To run the client side scripts the following requirements are needed:
 * Python 3.3+
 * RPIO.GPIO
 * picamera
