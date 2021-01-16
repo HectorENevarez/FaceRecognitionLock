@@ -38,4 +38,4 @@ def server_programs():
     c.close()
 
 if __name__ == '__main__':
-    server_program()
+    server_program() #Direct call
